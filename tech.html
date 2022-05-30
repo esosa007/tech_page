@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="tech.css" rel="stylesheet">
+    <title>Technical Document Page</title>
+</head>
+<body>
+    <main id="main-doc">
+      <nav id="navbar">
+        <header>CSS Explained</header>
+        <div class="navs"><a href="#CSS_Syntax" class="nav-link">CSS Syntax</a></div>
+        <div class="navs"><a href="#CSS_Selectors" class="nav-link">CSS Selectors</a></div>
+        <div class="navs"><a href="#CSS_Specificity" class="nav-link">CSS Specificity</a></div>
+        <div class="navs"><a href="#Common_Selectors" class="nav-link">Common Selectors</a></div>
+        <div class="navs"><a href="#Tips_&_Tricks" class="nav-link">Tips & Tricks</a></div>
+      </nav>
+      <div id="sections">
+        <section id="CSS_Syntax" class="main-section">
+          <header>CSS Syntax</header>
+          <p>What is CSS Syntax? Before we define that, let's first define CSS and syntax independently. CSS is an acronym for Cascade Style Sheets. Simply said, CSS is the language we use to give our HTML documents style. Style means giving our pages color, images and structure. Syntax means, "the arrangement of words and phrases to create well-formed sentences in a language." When you put them together you get CSS code that looks like so...</p>
+          <code>h1 {color: red};</code>
+          <p>In the example above, "h1" is the element we want to target. We want to make the color of the text that is nested within "h1" tags, red. After we select the element we want to target, we give a space, then use opening and closing curly braces "{}". Inside the curly braces are two parameters we must fill. The property and the value. "Color" is the property and "red" is the value. They go in that order. We must also use a colon after selecting the property and a semicolon after the closing curly brace for this code to work properly. Browsers recognize this "code" and execute our intentions.</p>
+        </section>
+        <section id="CSS_Selectors" class="main-section">
+          <header>CSS Selectors</header>
+          <p>CSS selectors define the elements to which a set of CSS rules apply. There are three main ways of targeting HTML elements. You can target the element itself by selecting the element you want to target and following the syntax rules, e.g., <code>header {background-color: gray};</code> <code> body {border-radius: 10px};</code>, <code> div {width: 35%};</code>. Targeting elements is the most broad way of affecting our HTML document. Selecting the <code>header</code> tag for example will affect all header tags in the document.</p>
+          <p>Or we can target classes by using the following syntax rules. You start with a period, followed by the class name and the property-value. As an example, <code> .blue {display: grid};</code>, <code> .pictures {background: url("https//...")};</code>. Using classes or elements as targets allows us to resuse this simple code repeatedly.</p> 
+          <p>On that last note, targeting I.D.'s is the least resusable way of targeting. The reason being is because I.D.'s can only be used once in a document. The way to target I.D.'s is by using the hashtag symbol, followed by the I.D. name and the property-value. For example, <code> #navbar {font-size: 18px};</code></p>
+          <p>Besides targeting individual elements, we can also use a combination of elements, classes and I.D.'s. For example, we can select <code> body div {color: red};</code> to target any <code> div</code> elements within the <code> body</code> element. Note that the code will only affect the div element and not the body element. In essence we are selecting the child element of the parent tag <code> body</code>. We can target multiple elements or classes by doing so.. <code>div, .blue {background-color: gray};</code>. This simple code will target all div elements and all elements with the <code> .blue</code> class. Combining selectors saves time and effort.</p>
+        </section>
+        <section id="CSS_Specificity" class="main-section">
+          <header>CSS Specificity</header>
+          <p>Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied.</p>
+          <p>Specificity is a weight that is applied to a given CSS declaration, determined by the number of each selector type in the matching selector. When multiple declarations have equal specificity, the last declaration found in the CSS is applied to the element. Specificity only applies when the same element is targeted by multiple declarations. As per CSS rules, directly targeted elements will always take precedence over rules which an element inherits from its ancestor.</p>
+          <p>What does this look like in practice? Say a <code> div</code> element has a class name of <code> .blue</code> and an I.D. of <code> #navbar</code>. In our CSS we have written code to target <code> div</code> elements with <code> {color: red};</code> but we have also decided to have class name <code> .blue</code> with <code> {color: blue};</code>. If we decide that we want to highlight our <code> div</code> element with I.D. name <code> #navbar</code> with <code> {color: yellow};</code> instead, which color from our styling rules will take priority? The answer from our example is, yellow. The reason being is that I.D.'s have higher specificity than classes or elements. Classes have higher specificity than elements so they override any rules that apply to elements.</p>
+        </section>
+        <section id="Common_Selectors" class="main-section">
+          <header>Common Selectors</header>
+          <p>10 Selectors every developer should know. Using the right CSS selectors minimize the amount of code, makes it more readable, and makes the CSS simpler to maintain that in the future.</p>
+          <ol>
+            <li>Element or Group Selector
+              <p>Element selector allows you to select and give styling to all elements with the same specified element name.</p>
+            </li>
+            <li>#id selector
+              <p>Using the # symbol followed by id name allows you to target by id and apply styling to all specified elements with a selected id.</p>
+            </li>
+            <li>.class selector
+              <p>It is similar to the id selector but the only difference is, class selector allows you to target multiple elements in a page.</p>
+            </li>
+            <li>Attribute selector
+              <p>Using attribute selector, you can select all elements by the name or value of a given attribute and apply styling to them.</p>
+            </li>
+            <li>Descendant selector
+              <p>Descendant selector apply styling to only those elements that are descendants of a specified element.</p>
+            </li>
+            <li>Child selector
+              <p>Child selector allows you to selects all elements that are the children of a specified element.</p>
+            </li>
+            <li>Adjacent and general sibling selectors
+              <p>Adjacent means “immediately following”. This selector is used when you want to select the elements that immediately follow the specified element (adjacent siblings).</p>
+            </li>
+            <li>The star selector *
+              <p>It is also called as universal selector (*) and it selects everything in the document and apply styling to them.</p>
+            </li>
+            <li>Pseudo-classes and Pseudo element
+              <p>Style an element based on the state of a specified element. For example, you can apply styling on an element when a user mouses over it, when a user visit or hover a link when an element gets focus.</p>
+            </li>
+            <li>nth-of-type and nth-child
+              <p>:nth-of-type selector allows you to select every element that is a specified nth child of a specified type of it parent.</p>
+            </li>
+          </ol>
+        </section>
+      <section id="Tips_&_Tricks" class="main-section">
+        <header>Tips & Tricks</header>
+        <p>The best method for learning to use CSS is by actually creating projects that require using CSS. For that reason, sites like <a href="https://www.freecodecamp.org/learn/">Free Code Camp</a> are a wonderful resource for learing to use CSS and to expand your skills by practing and creating actual working projects. This page was created after learning how HTML and CSS work together. I am a beginner and while my page may not look that great, it is just the beginning. When it feels difficult, keep pushing forward. Review, search, ask and keep going. Eventually it makes some sense, then more sense and so forth. Don't give up! Learning to use HTML and CSS may not be easy for everybody but anybody can learn to do it. Believe in yourself.</p>
+      </section>
+     </div>
+    </main>
+  </body>
+</html>
